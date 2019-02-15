@@ -1,5 +1,5 @@
 {
-  "name": "stack",
+  "name": "{{projectName}}",
   "scripts": {
     "start": "umi dev",
     "build": "umi build"
