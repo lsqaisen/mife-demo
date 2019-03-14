@@ -12,7 +12,8 @@ export default {
         webpackChunkName: true
       },
     }],
-    ['../utils/plugins/plugin.js', {
+    ['mife', {
+      type: 'plugin',
       dynamicImport: true,
       publicPath: '/lib/',
       externals: {
