@@ -3,13 +3,18 @@ export default {
   plugins: [
     ['umi-plugin-react', {
       dva: true,
+      antd: {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": true // `style: true` 会加载 less 文件
+      },
       routes: {
         exclude: [
           /model/,
         ],
       },
       dynamicImport: {
-        webpackChunkName: true
+        webpackChunkName: false,
       },
     }],
     ['mife', {
@@ -21,7 +26,22 @@ export default {
         'react-dom': 'window.ReactDOM',
         'dva': 'window.dva',
       },
-    }]
+    }],
   ],
   hash: true,
+  copy: [{ from: './src/public/oem', to: './static/oem', toType: 'dir' },],
+  chainWebpack(config, { webpack }) {
+    config.resolve.extensions.add(".tsx");
+  },
+  alias: {
+    '@': './src/components/'
+  },
+  define: {
+    "process.env.OEM_NAME": '/kubeup'
+  },
+  theme: {
+    "@primary-color": "#2D225A"
+  },
+  proxy: {
+  },
 }
