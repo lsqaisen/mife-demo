@@ -4,17 +4,17 @@ import { connect } from 'dva';
 import { Link } from 'dva/router';
 
 @connect()
-class Dashboard extends (PureComponent || Component) {
+class Dashboard extends (PureComponent || Component)<any, any> {
+  logout = (e: React.MouseEvent) => {
+    e.preventDefault();
+    this.props.dispatch({
+      type: 'user/logout'
+    })
+  }
   render() {
     return (
       <div>
-        <Button onClick={(e) => {
-          e.preventDefault();
-          console.log(this.props)
-          this.props.dispatch({
-            type: 'user/logout'
-          })
-        }}>logout</Button>
+        <Button onClick={this.logout}>logout</Button>
         <Link to="/node">go node</Link>
       </div>
     )
