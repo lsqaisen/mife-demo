@@ -15,7 +15,7 @@ class Dashboard extends (PureComponent || Component)<any, any> {
     return (
       <div>
         <Button onClick={this.logout}>logout</Button>
-        <Link to="/node">go node</Link>
+        <Link to="/{{projectName}}">go {`{{projectName}}`}</Link>
       </div>
     )
   }
