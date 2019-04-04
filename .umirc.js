@@ -32,7 +32,6 @@ export default {
     }],
   ],
   hash: true,
-  copy: [{ from: './src/public/plugins', to: './static/plugins', toType: 'dir' },],
   alias: {
     '@': './src/components/'
   },
