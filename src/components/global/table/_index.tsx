@@ -1,12 +1,16 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { PureComponent, Component } from 'react';
+import { PureComponent } from 'react';
 import { Table } from 'antd';
 import { TableProps, ColumnProps } from 'antd/lib/table';
 import { TweenOneGroup } from 'rc-tween-one';
+import Animate from 'rc-animate';
 import './style/index.less';
 
 const TableContext = React.createContext(false);
+
+
+const AnimateBody = (props: any) => <Animate transitionName="move" component="tbody" {...props} />;
 
 
 const enterAnim = (isPageTween: boolean, widthArray: (string | number | undefined)[]) => {
@@ -60,7 +64,7 @@ const leaveAnim = (isPageTween: boolean) => {
     ]
 };
 
-class ATable<T> extends (PureComponent || Component)<TableProps<T>, any> {
+class ATable<T> extends PureComponent<TableProps<T>, any> {
   animTag = (props: any) => {
     return (
       <TableContext.Consumer>
@@ -113,7 +117,7 @@ class ATable<T> extends (PureComponent || Component)<TableProps<T>, any> {
     return (
       <Table
         className={`table-enter-leave-demo-table`}
-        components={{ body: { wrapper: this.animTag } }}
+        components={{ body: { wrapper: AnimateBody } }}
         {...this.props}
       />
     )

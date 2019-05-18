@@ -10,6 +10,10 @@
     "umi-plugin-react": "^1.4.2"
   },
   "dependencies": {
-    "react-lifecycles-compat": "^3.0.4"
+    "@antv/data-set": "^0.10.2",
+    "@antv/g2": "^3.5.3",
+    "inputmask": "^4.0.8",
+    "react-lifecycles-compat": "^3.0.4",
+    "xterm": "^3.12.2"
   }
 }
