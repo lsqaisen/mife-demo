@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "{{projectName}}",
   "scripts": {
     "start": "MOCK=none umi dev",
     "mock": "umi dev",
