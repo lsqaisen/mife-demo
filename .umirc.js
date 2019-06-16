@@ -33,10 +33,12 @@ export default {
     }],
   ],
   hash: true,
+  copy: [{ from: './src/public/oem', to: './static/oem', toType: 'dir' },],
   alias: {
     '@': './src/components/'
   },
   define: {
+    'MODEL': "{{projectName}}",
     "process.env.OEM_NAME": '/kubeup',
     "process.env.VERSION": new Date().getTime(),
   },
@@ -65,6 +67,7 @@ export default {
       .prepend(".ts");
   },
   proxy: {
+    //models
     "/lib/login": {
       "target": "http://localhost:5000",
       "changeOrigin": true,
