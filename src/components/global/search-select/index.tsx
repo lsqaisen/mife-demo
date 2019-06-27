@@ -8,27 +8,30 @@ const OptGroup = Select.OptGroup;
 
 interface optionType {
 	key: string;
-	label: string;
+	value?: any;
+	label: any;
 	disabled?: boolean;
 	children?: optionType[]
 }
 
 export interface SearchSelectProps extends SelectProps {
-	data?: optionType[],
-	asyncSearch?: (param: any) => void
+	initFirst?: boolean;
+	data?: optionType[];
+	asyncSearch?: (param: any) => void;
 }
 
 interface SearchSelectState {
-	init: boolean,
-	error?: string,
-	loading: boolean,
-	end: boolean,
-	data: optionType[],
-	nextParams?: any,
+	init?: boolean;
+	error?: string;
+	loading: boolean;
+	end: boolean;
+	data: optionType[];
+	nextParams?: any;
 }
 
 class SearchSelect extends PureComponent<SearchSelectProps, SearchSelectState> {
 	static readonly defaultProps = {
+		initFirst: false,
 		data: []
 	}
 
@@ -56,7 +59,7 @@ class SearchSelect extends PureComponent<SearchSelectProps, SearchSelectState> {
 					)
 				} else {
 					return (
-						<Option disabled={option.disabled} key={option.key} value={option.key}>{option.label}</Option>
+						<Option disabled={option.disabled} key={option.key} value={option.value || option.key}>{option.label}</Option>
 					)
 				}
 			});
@@ -71,13 +74,14 @@ class SearchSelect extends PureComponent<SearchSelectProps, SearchSelectState> {
 		try {
 			let { data, params } = await onSearch!(nextParams);
 			this.setState({
+				init: true,
 				loading: false,
 				nextParams: params,
 				data: _data.concat(data || []),
 				end: !params
 			});
 		} catch (error) {
-			this.setState({ error, loading: false })
+			this.setState({ error, loading: false, init: true, })
 		}
 	}
 
@@ -87,32 +91,28 @@ class SearchSelect extends PureComponent<SearchSelectProps, SearchSelectState> {
 			this.setState({ data: data! })
 		}
 	}
-
-
+	componentDidMount() {
+		this.props.initFirst && this.load();
+	}
 	render() {
 		const { onSearch, ...props } = this.props;
 		const { init, error, loading, end, data } = this.state;
 		return (
 			<Select
 				{...props}
-				onFocus={() => {
-					if (!init) this.load();
-				}}
+				onFocus={() => !init && this.load()}
 				notFoundContent={error ? <p>
-					< span style={{ color: 'red' }
-					}> {error}</span > <br />
+					<span style={{ color: 'red' }}>{error}</span><br />
 					<a onClick={this.load}>重新加载</a>
-				</p > :
+				</p> :
 					'暂无数据'}
 			>
 				{this.getOptions(data)}
-				{
-					!loading && !end ? <Option disabled key="$nextsearch">
-						<a onClick={this.load}>更多...</a>
-					</Option> : []
-				}
+				{!loading && !end ? <Option disabled key="$nextsearch">
+					<a onClick={this.load}>更多...</a>
+				</Option> : []}
 				{loading ? <Option disabled key="$loading"><Spin size="small" /></Option> : []}
-			</Select >
+			</Select>
 		)
 	}
 }
