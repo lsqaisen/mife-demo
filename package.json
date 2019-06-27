@@ -1,8 +1,10 @@
 {
   "name": "{{projectName}}",
   "scripts": {
-    "start": "umi dev",
-    "build": "umi build"
+    "start": "MOCK=none umi dev",
+    "mock": "umi dev",
+    "build": "umi build",
+    "u": "mife-cli library"
   },
   "devDependencies": {
     "mife": "^0.0.6",

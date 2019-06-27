@@ -2,10 +2,8 @@ import * as React from 'react';
 import { PureComponent } from 'react';
 import { Form } from 'antd';
 import { FormItemProps, FormComponentProps, FormCreateOption } from 'antd/lib/form';
-// import ArrayInput, { ArrayInputProps } from './array-input';
 import { generateUUID } from '@/utils'
 
-// export { ArrayInput, ArrayInputProps };
 
 export interface FormInputItemProps extends FormItemProps {
   children: React.ReactNode,
