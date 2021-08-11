@@ -2889,10 +2889,10 @@ micromatch@^3.1.10, micromatch@^3.1.4, micromatch@^3.1.8:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-mife@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/mife/-/mife-0.0.2.tgz#aeafdcf3b47b79c628a086d12b544d82eab9eef7"
-  integrity sha512-AJ5+e9Q3KASkJ0Nl2cd8SscQ6vJ/Q/zE6gfnfUhYAXeizIhtw6ZcsJlJ2G1fgYuAbW95rXOsJcvX1qgzgkMRfA==
+mife@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mife/-/mife-0.0.6.tgz#141fe9ea001429530620d9d3baa044217e5687c5"
+  integrity sha512-nSA+fTsjYYH348Z8mOsYHIXEmRx+0qjA2tUfhWUV1wrMjEnC+dyR6CJ+bd/rkr/ecDCJwpvOGS36bpcysAC5DQ==
   dependencies:
     copy-webpack-plugin "^4.6.0"
     scriptjs "^2.5.9"
@@ -3384,9 +3384,9 @@ path-is-root@0.1.0:
   integrity sha1-ZmOrPisdpwYinhG1LIEcLUcIpaI=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@1.7.0, path-to-regexp@^1.7.0:
   version "1.7.0"
@@ -3412,6 +3412,11 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+perfect-scrollbar@^1.5.0:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/perfect-scrollbar/-/perfect-scrollbar-1.5.2.tgz#41167ac6bc95e3a5e87a7402fa36fdacca9bc298"
+  integrity sha512-McHAinFkyzKbBZrFtb4MT2mxkehp15KvOX/UrjB8C5EZZXHTHgyETo5IGFYtHRTI2Pb2bsV0OE0YnkjT9Cw3aw==
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -4487,6 +4492,14 @@ react-native-swipeout@^2.2.2:
     create-react-class "^15.6.0"
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
+
+react-perfect-scrollbar@^1.5.3:
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/react-perfect-scrollbar/-/react-perfect-scrollbar-1.5.8.tgz#380959387a325c5c9d0268afc08b3f73ed5b3078"
+  integrity sha512-bQ46m70gp/HJtiBOF3gRzBISSZn8FFGNxznTdmTG8AAwpxG1bJCyn7shrgjEvGSQ5FJEafVEiosY+ccER11OSA==
+  dependencies:
+    perfect-scrollbar "^1.5.0"
+    prop-types "^15.6.1"
 
 react-redux@^5.0.5:
   version "5.1.1"
